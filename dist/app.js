@@ -117,8 +117,9 @@
 
   function setAngle(next) {
     angle = next === 'RAD' ? 'RAD' : 'DEG';
-    find('angle').textContent = angle;
-    find('angle').setAttribute('aria-label', angle === 'DEG' ? 'Degrés, passer aux radians' : 'Radians, passer aux degrés');
+    const button = find('angle');
+    (button.querySelector('.key-label') ?? button).textContent = angle;
+    button.setAttribute('aria-label', angle === 'DEG' ? 'Degrés, passer aux radians' : 'Radians, passer aux degrés');
     save('angle', angle);
   }
 
@@ -246,6 +247,7 @@
     if (!/^[\d.+*/^%()=π-]$/.test(key) && key !== 'clear' && key !== 'back') return;
     event.preventDefault();
     input(key);
+    document.querySelector(`button[data-key="${CSS.escape(key)}"]`)?.dispatchEvent(new Event('key-strike'));
   });
 
   setTheme(theme);
