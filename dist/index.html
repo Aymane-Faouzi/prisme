@@ -34,7 +34,12 @@
       <div class="workspace">
         <div class="intro">
           <h1>Calculatrice<br><em>en relief<span>.</span></em></h1>
-          <p><span class="hover-hint">Survolez une touche pour la faire basculer. </span>Faites glisser la poignée pour incliner le boîtier.</p>
+          <p>Tirez sur une touche pour la détacher. Touchez-la pour la retourner, puis ramenez-la sur son socle.</p>
+          <div class="workbench-controls">
+            <button id="sound" type="button" aria-pressed="false"><span class="sound-indicator" aria-hidden="true"></span>Son</button>
+            <button id="restore-keys" type="button" hidden>Remonter les touches</button>
+          </div>
+          <span id="physical-status" class="visually-hidden" role="status"></span>
         </div>
         <div class="stage">
         <section class="calculator" aria-label="Calculatrice">
@@ -74,7 +79,7 @@
           <div class="status" role="status" id="status"></div>
           <div class="device-footer">
             <span class="device-brand"><svg><use href="#prism"/></svg> PRISME</span>
-            <button class="grip" id="grip" type="button" aria-label="Incliner le boîtier avec les flèches. Appuyer pour réinitialiser." title="Glisser pour incliner. Cliquer pour réinitialiser."><svg><use href="#hand"/></svg><span>Incliner</span><i aria-hidden="true"></i></button>
+            <button class="grip" id="grip" type="button" aria-label="Incliner le boîtier avec les flèches. Appuyer pour réinitialiser." title="Tirer ou lancer pour incliner. Cliquer pour réinitialiser."><svg><use href="#hand"/></svg><span>Incliner</span><i aria-hidden="true"></i></button>
           </div>
         </section>
         </div>
@@ -93,5 +98,6 @@
       </footer>
     </main>
   </div>
+  <div class="loose-keys" id="loose-keys" role="group" aria-label="Touches détachées" hidden></div>
 </body>
 </html>
